@@ -1,15 +1,15 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import { IMainState } from '../../typings';
+import { IMainState, ICoordinates } from '../../typings';
 import { Dispatch } from 'redux';
 import Grid from './Grid';
+import { setCellAsBlocked } from '../actions';
 
 const mapStateToProps = (state: IMainState) => ({
   grid: state.grid
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-
+  setCellAsBlocked: (coordinates: ICoordinates) => dispatch(setCellAsBlocked(coordinates))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Grid);

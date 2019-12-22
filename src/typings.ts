@@ -1,5 +1,12 @@
+export interface ICoordinates {
+  row: number;
+  col: number;
+}
+
+export type IStatus = 'empty' | 'blocked' | 'searched';
+
 export interface ICell {
-  status: 'empty' | 'blocked' | 'searched';
+  status: IStatus;
 }
 
 export interface IMainState {

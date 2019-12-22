@@ -15,3 +15,7 @@ table.grid-table {
   height: 10px;
   border: 1px solid #BBBBBB;
 }
+
+.grid-cell.blocked {
+  background-color: #BBBBBB;
+}
