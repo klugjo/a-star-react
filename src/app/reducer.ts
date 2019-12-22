@@ -1,7 +1,8 @@
 import { IAction, IMainState } from '../typings';
+import { createGrid } from '../a-star'
 
 const initialState: IMainState = {
-  grid: [[]]
+  grid: createGrid(64, 64)
 };
 
 export default function(state: IMainState = initialState, action: IAction<any>): IMainState {

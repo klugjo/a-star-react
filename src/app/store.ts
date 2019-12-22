@@ -6,4 +6,4 @@ export default function configureStore(): Store<IMainState, IAction<any>> {
   return createStore(
     reducer
   );
-}
+};

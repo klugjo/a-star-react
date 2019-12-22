@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { ICell } from '../typings';
+import { ICell } from '../../typings';
 
 interface IGridProps {
   grid: ICell[][];
