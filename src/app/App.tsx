@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './styles.css';
+import { createGrid } from '../a-star';
+import Grid from './Grid';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Grid />
+      <Grid grid={createGrid(64, 64)} />
     </div>
   );
 }

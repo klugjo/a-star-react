@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+
+.grid-root {
+  margin: 30px;
+}
+
+table.grid-table {
+  border-collapse: collapse;
+}
+
+.grid-cell {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #BBBBBB;
+}
