@@ -1,0 +1,17 @@
+.gridRoot {
+  margin-top: 30px;
+}
+
+table.gridTable {
+  border-collapse: collapse;
+}
+
+.gridCell {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #BBBBBB;
+}
+
+.gridCell.blocked {
+  background-color: #BBBBBB;
+}
