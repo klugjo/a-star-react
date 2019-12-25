@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { ICell, ICoordinates, Mode } from '../../typings';
 
@@ -33,6 +33,14 @@ const Grid: React.FC<IGridProps> = ({
     }
   };
 
+  const [isPressed, setIsPressed] = useState(false);
+  useEffect(() => {
+    document.addEventListener('mousedown', () => setIsPressed(true));
+    return () => {
+      document.addEventListener('mouseup', () => setIsPressed(false));
+    }
+  });
+
   return (
     <div className={styles.gridRoot}>
       <table className={styles.gridTable}>
@@ -46,6 +54,11 @@ const Grid: React.FC<IGridProps> = ({
                 { [styles.start]: rowIndex === start.row && colIndex === start.col },
                 { [styles.end]: rowIndex === end.row && colIndex === end.col }
               )}
+              onMouseEnter={() => {
+                if (isPressed) {
+                  setCellAsBlocked({ row: rowIndex, col: colIndex });
+                }
+              }}
               onClick={onClick(rowIndex, colIndex)}
             />)}
           </tr>)}
