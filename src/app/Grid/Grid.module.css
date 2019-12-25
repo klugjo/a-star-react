@@ -15,3 +15,11 @@ table.gridTable {
 .gridCell.blocked {
   background-color: #BBBBBB;
 }
+
+.gridCell.start {
+  background-color: #0F9960;
+}
+
+.gridCell.end {
+  background-color: #DB3737;
+}

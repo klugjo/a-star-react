@@ -5,7 +5,9 @@ import Grid from './Grid';
 import { setCellAsBlocked } from '../actions';
 
 const mapStateToProps = (state: IMainState) => ({
-  grid: state.grid
+  grid: state.grid,
+  start: state.start,
+  end: state.end,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

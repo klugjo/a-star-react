@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
-import { IMainState, ICoordinates } from '../../typings';
+import { IMainState } from '../../typings';
 import { Dispatch } from 'redux';
 import Controls from './Controls';
-import { setCellAsBlocked } from '../actions';
 
-const mapStateToProps = (state: IMainState) => ({
+const mapStateToProps = () => ({
   
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = () => ({
   
 });
 

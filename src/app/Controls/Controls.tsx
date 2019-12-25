@@ -1,7 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
-import { ICell, ICoordinates } from '../../typings';
-import { Button, ButtonGroup } from '@blueprintjs/core';
+import { Button, ButtonGroup, Icon } from '@blueprintjs/core';
 
 import styles from './Controls.module.css';
 
@@ -14,8 +12,8 @@ const Grid: React.FC<IGridProps> = ({
   return (
     <div className={styles.root}>
       <ButtonGroup>
-        <Button text="Set Start" active={true} />
-        <Button text="Set End" />
+        <Button text="Set Start" icon={<Icon icon="stop" color="#0F9960" />} />
+        <Button text="Set End" icon={<Icon icon="stop" color="#DB3737" />} />
       </ButtonGroup>
     </div>
   );
