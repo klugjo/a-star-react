@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { ICell, ICoordinates } from '../../typings';
+import { ICell, ICoordinates, Mode } from '../../typings';
 
 import styles from './Grid.module.css';
 
@@ -9,6 +9,9 @@ interface IGridProps {
   setCellAsBlocked: (coordinates: ICoordinates) => void;
   start: ICoordinates;
   end: ICoordinates;
+  mode: Mode;
+  setStart: (coordinates: ICoordinates) => void;
+  setEnd: (coordinates: ICoordinates) => void;
 }
 
 const Grid: React.FC<IGridProps> = ({
@@ -16,7 +19,20 @@ const Grid: React.FC<IGridProps> = ({
   setCellAsBlocked,
   start,
   end,
+  mode,
+  setStart,
+  setEnd
 }) => {
+  const onClick = (rowIndex: number, colIndex: number) => () => {
+    if (mode === Mode.draw) {
+      setCellAsBlocked({ row: rowIndex, col: colIndex });
+    } else if (mode === Mode.setStart) {
+      setStart({ row: rowIndex, col: colIndex });
+    } else if (mode === Mode.setEnd) {
+      setEnd({ row: rowIndex, col: colIndex });
+    }
+  };
+
   return (
     <div className={styles.gridRoot}>
       <table className={styles.gridTable}>
@@ -30,7 +46,7 @@ const Grid: React.FC<IGridProps> = ({
                 { [styles.start]: rowIndex === start.row && colIndex === start.col },
                 { [styles.end]: rowIndex === end.row && colIndex === end.col }
               )}
-              onClick={() => setCellAsBlocked({ row: rowIndex, col: colIndex })}
+              onClick={onClick(rowIndex, colIndex)}
             />)}
           </tr>)}
         </tbody>

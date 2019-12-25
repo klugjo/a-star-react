@@ -2,3 +2,8 @@
   margin: 30px;
   text-align: center;
 }
+
+buton.bp3-button.bp3-active,
+buton.bp3-button {
+  outline: 0;
+}

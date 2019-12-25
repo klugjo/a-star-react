@@ -1,7 +1,7 @@
 import React from 'react';
-import './styles.css';
 import Grid from './Grid';
 import Controls from './Controls';
+import './styles.css';
 
 const App: React.FC = () => {
   return (
