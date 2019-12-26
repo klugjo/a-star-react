@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
-import { ICell, ICoordinates, Mode } from '../../typings';
+import { ICell, ICoordinates, Mode, IVisitedCell, IPath } from '../../typings';
 
 import styles from './Grid.module.css';
 
@@ -9,6 +9,7 @@ interface IGridProps {
   start: ICoordinates;
   end: ICoordinates;
   mode: Mode;
+  path: IPath;
   setCellAsBlocked: (coordinates: ICoordinates) => void;
   setStart: (coordinates: ICoordinates) => void;
   setEnd: (coordinates: ICoordinates) => void;
@@ -22,6 +23,7 @@ const Grid: React.FC<IGridProps> = ({
   setEnd,
   setStart,
   start,
+  path
 }) => {
   const onClick = (rowIndex: number, colIndex: number) => () => {
     if (mode === Mode.draw) {
@@ -52,7 +54,9 @@ const Grid: React.FC<IGridProps> = ({
                 styles.gridCell,
                 styles[cell.status],
                 { [styles.start]: rowIndex === start.row && colIndex === start.col },
-                { [styles.end]: rowIndex === end.row && colIndex === end.col }
+                { [styles.end]: rowIndex === end.row && colIndex === end.col },
+                { [styles.closed]: path[rowIndex][colIndex]?.closed  },
+                { [styles.checked]: !!path[rowIndex][colIndex]?.fCost },
               )}
               onMouseEnter={() => {
                 if (isPressed) {

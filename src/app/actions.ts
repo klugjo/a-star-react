@@ -6,6 +6,7 @@ export const SET_END = 'SET_END';
 export const SET_CELL_AS_EMPTY = 'SET_CELL_AS_EMPTY';
 export const SET_CELL_AS_SEARCHED = 'SET_CELL_AS_SEARCHED';
 export const SET_MODE = 'SET_MODE';
+export const CALCULATE_PATH = 'CALCULATE_PATH';
 
 export const setCellAsBlocked = (payload: ICoordinates): IAction<ICoordinates> => ({
   type: SET_CELL_AS_BLOCKED,
@@ -25,4 +26,8 @@ export const setStart = (payload: ICoordinates): IAction<ICoordinates> => ({
 export const setEnd = (payload: ICoordinates): IAction<ICoordinates> => ({
   type: SET_END,
   payload
+});
+
+export const calculatePath = (): IAction => ({
+  type: CALCULATE_PATH
 });

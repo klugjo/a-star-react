@@ -1,4 +1,4 @@
-import { createGrid, getDistance } from './a-star';
+import { generateGrid, getDistance } from './a-star';
 
 describe('getDistance', () => {  
   test('horizontal line', () => {

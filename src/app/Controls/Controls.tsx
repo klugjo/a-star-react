@@ -7,11 +7,13 @@ import styles from './Controls.module.css';
 interface IGridProps {
   mode: Mode;
   setMode: (mode: Mode) => void;
+  calculatePath: () => void;
 }
 
 const Grid: React.FC<IGridProps> = ({
   mode,
-  setMode
+  setMode,
+  calculatePath
 }) => {
   return (
     <div className={styles.root}>
@@ -28,6 +30,11 @@ const Grid: React.FC<IGridProps> = ({
           icon={<Icon icon="stop" color="#DB3737" />}
           active={mode === Mode.setEnd}
           onClick={() => setMode(mode === Mode.setEnd ? Mode.draw : Mode.setEnd)}
+          style={{ outline: 0 }}
+        />
+        <Button
+          text="Go"
+          onClick={calculatePath}
           style={{ outline: 0 }}
         />
       </ButtonGroup>

@@ -16,6 +16,14 @@ table.gridTable {
   background-color: #BBBBBB;
 }
 
+.gridCell.checked {
+  background-color: #FFC940;
+}
+
+.gridCell.closed {
+  background-color: #0E5A8A;
+}
+
 .gridCell.start {
   background-color: #0F9960;
 }
