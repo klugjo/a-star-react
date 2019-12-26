@@ -6,22 +6,22 @@ import styles from './Grid.module.css';
 
 interface IGridProps {
   grid: ICell[][];
-  setCellAsBlocked: (coordinates: ICoordinates) => void;
   start: ICoordinates;
   end: ICoordinates;
   mode: Mode;
+  setCellAsBlocked: (coordinates: ICoordinates) => void;
   setStart: (coordinates: ICoordinates) => void;
   setEnd: (coordinates: ICoordinates) => void;
 }
 
 const Grid: React.FC<IGridProps> = ({
-  grid,
-  setCellAsBlocked,
-  start,
   end,
+  grid,
   mode,
+  setCellAsBlocked,
+  setEnd,
   setStart,
-  setEnd
+  start,
 }) => {
   const onClick = (rowIndex: number, colIndex: number) => () => {
     if (mode === Mode.draw) {
