@@ -1,15 +1,17 @@
 import _ from 'lodash';
 import { IAction, IMainState, ICoordinates, IStatus, Mode, ICell, IVisitedCell } from '../typings';
 import { generateGrid, computePath } from '../a-star'
-import { SET_CELL_AS_BLOCKED, SET_MODE, SET_START, SET_END, CALCULATE_PATH, CLEAR_GRID } from './actions';
+import { SET_CELL_AS_BLOCKED, SET_MODE, SET_START, SET_END, CALCULATE_PATH, CLEAR_GRID, CHANGE_GRID_SIZE } from './actions';
 
-const initialState: IMainState = {
-  grid: generateGrid<ICell>(32, 32, { status: 'empty' }),
+const initialState = (width: number, height: number): IMainState => ({
+  grid: generateGrid<ICell>(width, height, { status: 'empty' }),
   mode: Mode.draw,
   start: { row: 2, col: 2 },
-  end: { row: 29, col: 29 },
-  path: generateGrid<IVisitedCell | undefined>(32, 32, undefined)
-};
+  end: { row: width -3, col: height - 3 },
+  path: generateGrid<IVisitedCell | undefined>(width, height, undefined),
+  width,
+  height
+});
 
 const changeCellStatus = (state: IMainState, { row, col }: ICoordinates, status: IStatus): IMainState => {
   const newState = _.cloneDeep(state);
@@ -17,7 +19,7 @@ const changeCellStatus = (state: IMainState, { row, col }: ICoordinates, status:
   return newState;
 };
 
-export default function (state: IMainState = initialState, action: IAction<any>): IMainState {
+export default function (state: IMainState = initialState(32, 32), action: IAction<any>): IMainState {
   switch (action.type) {
     case SET_CELL_AS_BLOCKED:
       return changeCellStatus(state, action.payload, 'blocked');
@@ -30,7 +32,9 @@ export default function (state: IMainState = initialState, action: IAction<any>)
     case CALCULATE_PATH:
       return { ...state, path: computePath(state.grid, state.start, state.end) };
     case CLEAR_GRID:
-      return initialState;
+      return initialState(state.width, state.height);
+      case CHANGE_GRID_SIZE:
+        return initialState(action.payload?.width, action.payload?.height);
     default:
       return state;
   }

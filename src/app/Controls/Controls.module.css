@@ -2,3 +2,12 @@
   display: flex;
   flex-direction: row;
 }
+
+.listItem {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.listItem:hover {
+  background-color: #DDD;
+}

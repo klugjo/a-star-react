@@ -50,6 +50,7 @@ const Grid: React.FC<IGridProps> = ({
           {grid.map((row: ICell[], rowIndex: number) => <tr key={rowIndex}>
             {row.map((cell: ICell, colIndex: number) => <GridCell
               {...{
+                key: `${rowIndex}-${colIndex}`,
                 cell,
                 rowIndex,
                 colIndex,
