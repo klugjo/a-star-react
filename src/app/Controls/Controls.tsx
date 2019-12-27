@@ -8,12 +8,14 @@ interface IGridProps {
   mode: Mode;
   setMode: (mode: Mode) => void;
   calculatePath: () => void;
+  clearGrid: () => void;
 }
 
 const Grid: React.FC<IGridProps> = ({
   mode,
   setMode,
-  calculatePath
+  calculatePath,
+  clearGrid
 }) => {
   return (
     <div className={styles.root}>
@@ -35,6 +37,11 @@ const Grid: React.FC<IGridProps> = ({
         <Button
           text="Go"
           onClick={calculatePath}
+          style={{ outline: 0 }}
+        />
+        <Button
+          text="Clear"
+          onClick={clearGrid}
           style={{ outline: 0 }}
         />
       </ButtonGroup>

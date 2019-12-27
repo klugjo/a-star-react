@@ -11,6 +11,7 @@ const mapStateToProps = (state: IMainState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   setMode: (mode: Mode) => dispatch(actions.setMode(mode)),
   calculatePath: () => dispatch(actions.calculatePath()),
+  clearGrid: () => dispatch(actions.clearGrid()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Controls);

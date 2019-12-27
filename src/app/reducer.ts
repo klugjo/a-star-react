@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { IAction, IMainState, ICoordinates, IStatus, Mode, ICell, IVisitedCell } from '../typings';
 import { generateGrid, computePath } from '../a-star'
-import { SET_CELL_AS_BLOCKED, SET_MODE, SET_START, SET_END, CALCULATE_PATH } from './actions';
+import { SET_CELL_AS_BLOCKED, SET_MODE, SET_START, SET_END, CALCULATE_PATH, CLEAR_GRID } from './actions';
 
 const initialState: IMainState = {
   grid: generateGrid<ICell>(32, 32, { status: 'empty' }),
@@ -29,6 +29,8 @@ export default function (state: IMainState = initialState, action: IAction<any>)
       return { ...state, end: action.payload, mode: Mode.draw };
     case CALCULATE_PATH:
       return { ...state, path: computePath(state.grid, state.start, state.end) };
+    case CLEAR_GRID:
+      return initialState;
     default:
       return state;
   }
