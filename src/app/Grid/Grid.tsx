@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import cn from 'classnames';
 import { ICell, ICoordinates, Mode, IVisitedCell, IPath } from '../../typings';
+import GridCell from './GridCell';
 
 import styles from './Grid.module.css';
 
@@ -25,7 +25,7 @@ const Grid: React.FC<IGridProps> = ({
   start,
   path
 }) => {
-  const onClick = (rowIndex: number, colIndex: number) => () => {
+  const onCellClick = (rowIndex: number, colIndex: number) => () => {
     if (mode === Mode.draw) {
       setCellAsBlocked({ row: rowIndex, col: colIndex });
     } else if (mode === Mode.setStart) {
@@ -48,22 +48,18 @@ const Grid: React.FC<IGridProps> = ({
       <table className={styles.gridTable}>
         <tbody>
           {grid.map((row: ICell[], rowIndex: number) => <tr key={rowIndex}>
-            {row.map((cell: ICell, colIndex: number) => <td
-              key={`${rowIndex}-${colIndex}`}
-              className={cn(
-                styles.gridCell,
-                styles[cell.status],
-                { [styles.start]: rowIndex === start.row && colIndex === start.col },
-                { [styles.end]: rowIndex === end.row && colIndex === end.col },
-                { [styles.closed]: path[rowIndex][colIndex]?.closed  },
-                { [styles.checked]: !!path[rowIndex][colIndex]?.fCost },
-              )}
-              onMouseEnter={() => {
-                if (isPressed) {
-                  setCellAsBlocked({ row: rowIndex, col: colIndex });
-                }
+            {row.map((cell: ICell, colIndex: number) => <GridCell
+              {...{
+                cell,
+                rowIndex,
+                colIndex,
+                start,
+                end,
+                path,
+                setCellAsBlocked,
+                isPressed,
+                onCellClick
               }}
-              onClick={onClick(rowIndex, colIndex)}
             />)}
           </tr>)}
         </tbody>
