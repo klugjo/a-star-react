@@ -7,6 +7,14 @@ table.gridTable {
   width: min(2.8vw, 2.6vh); /* (100vw - 10vw (margin)) / 32 = 2.8125 */
   height: min(2.8vw, 2.6vh);
   border: 1px solid #BBBBBB;
+  overflow: hidden;
+}
+
+.gridTooltip,
+.gridTooltip :global(.bp3-popover-wrapper) {
+  width: calc(min(2.8vw, 2.6vh) - 4px);
+  height: calc(min(2.8vw, 2.6vh) - 4px);
+  display: block;
 }
 
 .gridCell.blocked {

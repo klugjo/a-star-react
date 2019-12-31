@@ -1,6 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 import { ICoordinates, IPath, ICell } from '../../typings';
+import { Tooltip } from '@blueprintjs/core';
+import TooltipContent from './TooltipContent';
 
 import styles from './Grid.module.css';
 
@@ -13,7 +15,7 @@ interface IGridCellProps {
   path: IPath
   setCellAsBlocked: (coords: ICoordinates) => void;
   isPressed: boolean;
-  onCellClick: (rowIndex: number, colInde:number) => () => void;
+  onCellClick: (rowIndex: number, colInde: number) => () => void;
 }
 
 const GridCell: React.FC<IGridCellProps> = ({
@@ -46,7 +48,17 @@ const GridCell: React.FC<IGridCellProps> = ({
       }
     }}
     onClick={onCellClick(rowIndex, colIndex)}
-  />;
+  >
+    {
+      (isClosed || isChecked) ?
+      <Tooltip
+        className={styles.gridTooltip}
+        content={<TooltipContent cell={path[rowIndex][colIndex]!} />}>
+          <div className={styles.gridTooltip} style={{ color: 'transparent' }} />
+        </Tooltip> :
+      null
+    }
+  </td>;
 }
 
 export default React.memo(GridCell);

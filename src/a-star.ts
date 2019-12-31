@@ -23,7 +23,7 @@ export const getDistance = (a: ICoordinates, b: ICoordinates) => {
   const numberOfStraightSegments = Math.abs(colOffset - rowOffset);
   const numberOfDiagonalSegments = Math.max(colOffset, rowOffset) - numberOfStraightSegments;
 
-  return numberOfStraightSegments * 10 + numberOfDiagonalSegments * 14;
+  return numberOfStraightSegments * 10 + numberOfDiagonalSegments * 14; // 14 ~ 10 * sqrt(2)
 }
 
 const getMinOfGrid = (cells: IPath, grid: ICell[][]): ICoordinates => {
@@ -36,7 +36,11 @@ const getMinOfGrid = (cells: IPath, grid: ICell[][]): ICoordinates => {
         cells[rowIndex][colIndex] :
         undefined;
 
-      if (!!cell && !cell.closed && (cell.fCost < fCostMin || cell.fCost === fCostMin && cell.hCost < hCostMin)) {
+      if (!cell || cell.closed) {
+        return;
+      }
+
+      if (cell.hCost < hCostMin || (cell.hCost === hCostMin && cell.fCost < fCostMin)) {
         fCostMin = cell.fCost;
         hCostMin = cell.hCost;
         result = { col: colIndex, row: rowIndex };
