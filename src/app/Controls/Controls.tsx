@@ -7,22 +7,16 @@ import styles from './Controls.module.css';
 
 interface IGridProps {
   mode: Mode;
-  width: number;
-  height: number;
   setMode: (mode: Mode) => void;
   calculatePath: () => void;
   clearGrid: () => void;
-  changeGridSize: (size: { width: number, height: number }) => void;
 }
 
 const Grid: React.FC<IGridProps> = ({
   mode,
-  width,
-  height,
   setMode,
   calculatePath,
   clearGrid,
-  changeGridSize
 }) => {
   const SizeSelect = Select.ofType<{ width: number, height: number }>();
 
@@ -53,28 +47,6 @@ const Grid: React.FC<IGridProps> = ({
           onClick={clearGrid}
           style={{ outline: 0 }}
         />
-        <SizeSelect
-          filterable={false}
-          items={[
-            { width: 32, height: 32 },
-            { width: 64, height: 64 },
-            { width: 128, height: 128 },
-          ]}
-          itemRenderer={(item: { width: number, height: number }) => <div
-            className={styles.listItem}
-            key={`${item.width}${item.height}`}
-            onClick={() => changeGridSize(item)}
-          >
-            {`${item.width} x ${item.height}`}
-          </div>}
-          onItemSelect={(item: { width: number, height: number }) => changeGridSize(item) }
-        >
-          <Button
-            text={`${width} x ${height}`}
-            onClick={clearGrid}
-            style={{ outline: 0 }}
-          />
-        </SizeSelect>
       </ButtonGroup>
     </div>
   );

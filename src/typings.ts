@@ -34,6 +34,4 @@ export interface IMainState {
   start: ICoordinates;
   end: ICoordinates;
   mode: Mode;
-  width: number;
-  height: number;
 }
