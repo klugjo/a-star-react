@@ -1,5 +1,5 @@
 .App {
-  margin: 30px;
+  margin: 0 min(5vh, 5vw) min(5vh, 5vw) min(5vh, 5vw);
   text-align: center;
 }
 

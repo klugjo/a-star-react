@@ -1,6 +1,8 @@
 .root {
+  height: min(10vh, 10vw);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center; 
 }
 
 .listItem {
@@ -10,4 +12,8 @@
 
 .listItem:hover {
   background-color: #DDD;
+}
+
+.buttonGroup {
+  margin-left: 15px;
 }

@@ -1,14 +1,11 @@
-.gridRoot {
-  margin-top: 30px;
-}
-
 table.gridTable {
   border-collapse: collapse;
+  margin: auto;
 }
 
 .gridCell {
-  width: 10px;
-  height: 10px;
+  width: min(2.8vw, 2.6vh); /* (100vw - 10vw (margin)) / 32 = 2.8125 */
+  height: min(2.8vw, 2.6vh);
   border: 1px solid #BBBBBB;
 }
 
