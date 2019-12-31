@@ -49,4 +49,4 @@ const GridCell: React.FC<IGridCellProps> = ({
   />;
 }
 
-export default GridCell;
+export default React.memo(GridCell);
