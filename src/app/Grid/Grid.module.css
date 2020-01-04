@@ -1,19 +1,22 @@
 table.gridTable {
-  border-collapse: collapse;
+  border-collapse: separate;
   margin: auto;
+  border-spacing: 3px;
 }
 
 .gridCell {
-  width: min(2.8vw, 2.6vh); /* (100vw - 10vw (margin)) / 32 = 2.8125 */
-  height: min(2.8vw, 2.6vh);
-  border: 1px solid #BBBBBB;
+  width: calc(min(2.8vw, 2.6vh) - 3px); /* (100vw - 10vw (margin)) / 32 = 2.8125 */
+  height: calc(min(2.8vw, 2.6vh) - 3px);
   overflow: hidden;
+  background: #2E3F5A;
+  border-radius: 5px;
+  border: 1px;
 }
 
 .gridTooltip,
 .gridTooltip :global(.bp3-popover-wrapper) {
-  width: calc(min(2.8vw, 2.6vh) - 4px);
-  height: calc(min(2.8vw, 2.6vh) - 4px);
+  width: calc(min(2.8vw, 2.6vh) - 7px);
+  height: calc(min(2.8vw, 2.6vh) - 7px);
   display: block;
 }
 
@@ -22,17 +25,17 @@ table.gridTable {
 }
 
 .gridCell.checked {
-  background-color: #FFC940;
+  background-color: #75CCFA;
 }
 
 .gridCell.closed {
-  background-color: #0E5A8A;
+  background-color: #4C8CEB;
 }
 
 .gridCell.start {
-  background-color: #0F9960;
+  background-color: #4dd276;
 }
 
 .gridCell.end {
-  background-color: #DB3737;
+  background-color: #EC605B;
 }
