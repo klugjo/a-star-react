@@ -56,6 +56,7 @@ const getMinOfGrid = (cells: IPath, grid: ICell[][]): ICoordinates => {
 }
 
 export const computePath = (grid: ICell[][], start: ICoordinates, end: ICoordinates) => {
+  let counter = 0;
   const calculateNeighbors = () => coordinatesToCheck.forEach(({ col, row }) => {
     const c: ICoordinates = { col: col + currentCell.col, row: row + currentCell.row };
 
@@ -70,7 +71,8 @@ export const computePath = (grid: ICell[][], start: ICoordinates, end: ICoordina
         gCost,
         hCost,
         fCost: gCost + hCost,
-        closed: false
+        closed: false,
+        counter: counter++
       };
     }
   });

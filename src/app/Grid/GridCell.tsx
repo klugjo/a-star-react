@@ -31,7 +31,7 @@ const GridCell: React.FC<IGridCellProps> = ({
 }) => {
   const isClosed = path[rowIndex][colIndex]?.closed;
   const isChecked = !!path[rowIndex][colIndex]?.fCost;
-  const gCost = path[rowIndex][colIndex]?.gCost;
+  const animationOffset = path[rowIndex][colIndex]?.counter;
 
   return <td
     key={`${rowIndex}-${colIndex}`}
@@ -49,7 +49,7 @@ const GridCell: React.FC<IGridCellProps> = ({
       }
     }}
     onClick={onCellClick(rowIndex, colIndex)}
-    style={{ animationDelay: gCost ? `${gCost * 5}ms` : undefined }}
+    style={{ animationDelay: animationOffset ? `${animationOffset * 10}ms` : undefined }}
   >
     {
       (isClosed || isChecked) ?

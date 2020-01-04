@@ -25,7 +25,8 @@ export interface IVisitedCell {
   gCost: number; // distance to start node
   hCost: number; // distance to end node
   fCost: number; // sum of the above
-  closed: boolean; // Already
+  closed: boolean; // Already checked
+  counter: number; // Order in which it is checked (for css animation)
 }
 
 export interface IMainState {
