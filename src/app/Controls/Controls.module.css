@@ -5,6 +5,21 @@
   justify-content: center; 
 }
 
+.root :global(.bp3-button) {
+  background: #1f2c40;
+  color: #8293AE;
+  height: 50px;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #8293AE;
+}
+
+.root :global(.bp3-button:not([class*="bp3-intent-"]).bp3-active),
+.root :global(.bp3-button:not([class*="bp3-intent-"]):hover)
+{
+  background: #2e3f5a;
+}
+
 .listItem {
   padding: 5px;
   cursor: pointer;

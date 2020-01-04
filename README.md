@@ -1,4 +1,4 @@
-- gradient for visited cells
-- hover to see costs
+
+- improve buttons
 - presets
-- better design
+- tests
