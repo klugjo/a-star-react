@@ -1,3 +1,14 @@
+@keyframes fadeInChecked {
+  from { background: #2E3F5A; }
+  to { background: #75CCFA; }
+}
+
+@keyframes fadeInClosed {
+  from { background: #2E3F5A; }
+  to { background: #4C8CEB; }
+}
+
+
 table.gridTable {
   border-collapse: separate;
   margin: auto;
@@ -24,12 +35,12 @@ table.gridTable {
   background-color: #BBBBBB;
 }
 
-.gridCell.checked {
-  background-color: #75CCFA;
+.gridCell.checked:not(.start):not(.end) {
+  animation: fadeInChecked 2s forwards;
 }
 
-.gridCell.closed {
-  background-color: #4C8CEB;
+.gridCell.closed:not(.start):not(.end) {
+  animation: fadeInClosed 2s forwards;
 }
 
 .gridCell.start {
