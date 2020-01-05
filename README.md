@@ -1,4 +1,3 @@
 
-- improve buttons
 - presets
 - tests

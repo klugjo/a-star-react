@@ -23,14 +23,14 @@ const Grid: React.FC<IGridProps> = ({
         <ButtonGroup>
           <Button
             text="Set Start"
-            icon={<Icon icon="stop" color="#0F9960" />}
+            icon={<Icon icon="stop" color="#4dd276" />}
             active={mode === Mode.setStart}
             onClick={() => setMode(mode === Mode.setStart ? Mode.draw : Mode.setStart)}
             style={{ outline: 0 }}
           />
           <Button
             text="Set End"
-            icon={<Icon icon="stop" color="#DB3737" />}
+            icon={<Icon icon="stop" color="#EC605B" />}
             active={mode === Mode.setEnd}
             onClick={() => setMode(mode === Mode.setEnd ? Mode.draw : Mode.setEnd)}
             style={{ outline: 0 }}
