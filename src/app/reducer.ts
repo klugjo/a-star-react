@@ -3,13 +3,12 @@ import { IAction, IMainState, ICoordinates, IStatus, Mode, ICell, IVisitedCell }
 import { generateGrid, computePath } from '../a-star'
 import { SET_CELL_AS_BLOCKED, SET_MODE, SET_START, SET_END, CALCULATE_PATH, CLEAR_GRID } from './actions';
 import { GRID_SIZE } from './constants';
-import { LABYRINTH } from './presets';
 
 const initialState = (width: number, height: number): IMainState => ({
-  grid: LABYRINTH,
+  grid: generateGrid<ICell>(width, height, { status: 'empty' }),
   mode: Mode.draw,
-  start: { row: 1, col: 1 },
-  end: { row: width - 2, col: height - 2 },
+  start: { row: 2, col: 2 },
+  end: { row: width -3, col: height - 3 },
   path: generateGrid<IVisitedCell | undefined>(width, height, undefined)
 });
 
