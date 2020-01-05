@@ -5,7 +5,7 @@
 
 @keyframes fadeInClosed {
   from { background: #2E3F5A; }
-  to { background: #4C8CEB; }
+  to { background: rgb(34, 116, 240); }
 }
 
 
