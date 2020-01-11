@@ -66,6 +66,7 @@ export const computePath = (mainGrid: ICell[][], start: ICoordinates, end: ICoor
     remove(openList, c => (c.x === currentCell.x && c.y === currentCell.y));
     currentCell.isClosed = true;
 
+    // eslint-disable-next-line no-loop-func
     coordinatesToCheck.forEach(coordinatesToCheck => {
       const { x, y }: ICoordinates = { x: currentCell.x + coordinatesToCheck.x, y: currentCell.y + coordinatesToCheck.y };
       
@@ -74,7 +75,7 @@ export const computePath = (mainGrid: ICell[][], start: ICoordinates, end: ICoor
         x >= gridLength ||
         y < 0 ||
         y >= gridLength
-        || (start.x == x && start.y === y) ||
+        || (start.x === x && start.y === y) ||
         grid[x][y].isClosed ||
         mainGrid[x][y].status === 'blocked') {
         return;
@@ -101,7 +102,8 @@ export const computePath = (mainGrid: ICell[][], start: ICoordinates, end: ICoor
         neighborCell.parent = currentCell;
         neighborCell.gCost = gCost;
         neighborCell.fCost = neighborCell.gCost + neighborCell.hCost;
-        neighborCell.counter = counter++;
+        counter = counter + 1;
+        neighborCell.counter = counter;
       }
     });
   }

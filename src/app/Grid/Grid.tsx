@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { ICell, ICoordinates, Mode, IVisitedCell, IPath } from '../../typings';
+import React from 'react';
+import { ICell, ICoordinates, Mode, IPath } from '../../typings';
 import GridCell from './GridCell';
-import cn from 'classnames';
 
 import styles from './Grid.module.css';
 

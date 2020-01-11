@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { IMainState, ICoordinates } from '../../typings';
 import { Dispatch } from 'redux';
 import Grid from './Grid';
-import { setCellAsBlocked, setStart, setEnd, calculatePath } from '../actions';
+import { setCellAsBlocked, setStart, setEnd } from '../actions';
 
 const mapStateToProps = (state: IMainState) => ({
   grid: state.grid,

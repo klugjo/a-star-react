@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup, Icon, Dialog } from '@blueprintjs/core';
-import { Mode, IPreset } from '../../typings';
+import { IPreset } from '../../typings';
 
 import styles from './Controls.module.css';
 
@@ -65,8 +65,8 @@ const SettingsModal: React.FC<ISettingsModalProps> = ({
           <div className={styles.section}>
             <h3>Ressources I found useful</h3>
             <ul>
-              <li><a target="_blank" href="https://www.youtube.com/watch?v=-L-WgKMFuhE">Sebastian Lague's Youtube Video</a></li>
-              <li><a target="_blank" href="https://briangrinstead.com/blog/astar-search-algorithm-in-javascript/">Brian Grinstead's blog article</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=-L-WgKMFuhE">Sebastian Lague's Youtube Video</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://briangrinstead.com/blog/astar-search-algorithm-in-javascript/">Brian Grinstead's blog article</a></li>
             </ul>
           </div>
         </div>
