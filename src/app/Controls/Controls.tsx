@@ -46,13 +46,13 @@ const Grid: React.FC<IGridProps> = ({
         </ButtonGroup>
         <ButtonGroup className={styles.buttonGroup}>
           <Button
-            text="Compute Path"
-            icon={<Icon icon="build" color="#8293AE" iconSize={14} />}
+            text="Start"
+            icon={<Icon icon="play" color="#8293AE" iconSize={14} />}
             onClick={calculatePath}
             style={{ outline: 0 }}
           />
           <Button
-            text="Clear"
+            text="Reset"
             icon={<Icon icon="cross" color="#8293AE" iconSize={14} />}
             onClick={clearGrid}
             style={{ outline: 0 }}
