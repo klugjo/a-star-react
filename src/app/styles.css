@@ -1,6 +1,21 @@
 .App {
-  margin: 0 min(5vh, 5vw) min(5vh, 5vw) min(5vh, 5vw);
+  margin: 0 min(5vh, 5vw) min(5vh, 5vw) 0;
   text-align: center;
+}
+
+.footer {
+  height: min(5vh, 5vw);
+  color: #bbbbbb;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.footer a {
+  color: #BBBBBB;
+  display: inline-block;
+  margin-left: 5px;
+  text-decoration: underline;
 }
 
 buton.bp3-button.bp3-active,

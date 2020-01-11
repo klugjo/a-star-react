@@ -1,4 +1,4 @@
-import { ICoordinates, IAction, Mode } from '../typings';
+import { ICoordinates, IAction, Mode, IPreset } from '../typings';
 
 export const SET_CELL_AS_BLOCKED = 'SET_CELL_AS_BLOCKED';
 export const SET_START = 'SET_START';
@@ -8,6 +8,7 @@ export const SET_CELL_AS_SEARCHED = 'SET_CELL_AS_SEARCHED';
 export const SET_MODE = 'SET_MODE';
 export const CALCULATE_PATH = 'CALCULATE_PATH';
 export const CLEAR_GRID = 'CLEAR_GRID';
+export const CHANGE_PRESET = 'CHANGE_PRESET';
 
 export const setCellAsBlocked = (payload: ICoordinates): IAction<ICoordinates> => ({
   type: SET_CELL_AS_BLOCKED,
@@ -35,4 +36,9 @@ export const calculatePath = (): IAction => ({
 
 export const clearGrid = (): IAction => ({
   type: CLEAR_GRID,
+});
+
+export const changePreset = (payload: IPreset): IAction<IPreset> => ({
+  type: CHANGE_PRESET,
+  payload
 });

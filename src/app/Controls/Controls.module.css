@@ -5,18 +5,20 @@
   justify-content: center; 
 }
 
-.root :global(.bp3-button) {
+.root :global(.bp3-button),
+.modalRoot .modalContent :global(.bp3-button) {
   background: #1f2c40;
-  color: #8293AE;
+  color: #BBBBBB;
   height: 50px;
   padding: 15px;
   font-size: 16px;
-  border: 1px solid #8293AE;
+  border: 1px solid #BBBBBB;
 }
 
 .root :global(.bp3-button:not([class*="bp3-intent-"]).bp3-active),
-.root :global(.bp3-button:not([class*="bp3-intent-"]):hover)
-{
+.modalRoot .modalContent :global(.bp3-button:not([class*="bp3-intent-"]).bp3-active),
+.root :global(.bp3-button:not([class*="bp3-intent-"]):hover),
+.modalRoot .modalContent :global(.bp3-button:not([class*="bp3-intent-"]):hover) {
   background: #2e3f5a;
 }
 
@@ -31,4 +33,42 @@
 
 .buttonGroup {
   margin-left: 15px;
+}
+
+.modalRoot {
+  width: 610px;
+  font-size: 16px;
+}
+
+.modalRoot,
+.modalRoot :global(.bp3-dialog-header),
+.modalRoot :global(.bp3-heading) {
+  border-radius: 0;
+  background: #1f2c40;
+  color: #BBBBBB;
+}
+
+.modalRoot :global(.bp3-dialog-header) {
+  padding: 40px;
+  border-bottom: 1px solid #BBBBBB;
+}
+
+.modalRoot .modalContent {
+  padding: 40px;
+}
+
+.modalRoot .modalContent .section {
+  margin-bottom: 40px;
+}
+
+.modalRoot .modalContent .section h3 {
+  margin-bottom: 25px;
+}
+
+.modalRoot .modalContent ul {
+  list-style-type: square;
+}
+
+.modalRoot .modalContent a {
+  color: #BBBBBB;
 }

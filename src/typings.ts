@@ -9,6 +9,9 @@ export interface ICoordinates {
 }
 
 export type IStatus = 'empty' | 'blocked';
+
+export type IPreset = 'a-star-text' | 'labyrinth' | 'random' | 'blank';
+
 export enum Mode {
   draw,
   setStart,
@@ -39,4 +42,5 @@ export interface IMainState {
   start: ICoordinates;
   end: ICoordinates;
   mode: Mode;
+  preset: IPreset;
 }

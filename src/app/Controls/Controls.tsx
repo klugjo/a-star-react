@@ -1,22 +1,26 @@
 import React from 'react';
 import { Button, ButtonGroup, Icon } from '@blueprintjs/core';
-import { Mode } from '../../typings';
+import { Mode, IPreset } from '../../typings';
 import SettingsModal from './SettingsModal';
 
 import styles from './Controls.module.css';
 
 interface IGridProps {
   mode: Mode;
+  preset: IPreset;
   setMode: (mode: Mode) => void;
   calculatePath: () => void;
   clearGrid: () => void;
+  changePreset: (preset: IPreset) => void;
 }
 
 const Grid: React.FC<IGridProps> = ({
   mode,
+  preset,
   setMode,
   calculatePath,
   clearGrid,
+  changePreset
 }) => {
   return (
     <div className={styles.root}>
@@ -47,18 +51,21 @@ const Grid: React.FC<IGridProps> = ({
         <ButtonGroup className={styles.buttonGroup}>
           <Button
             text="Start"
-            icon={<Icon icon="play" color="#8293AE" iconSize={14} />}
+            icon={<Icon icon="play" color="#BBBBBB" iconSize={14} />}
             onClick={calculatePath}
             style={{ outline: 0 }}
           />
           <Button
             text="Reset"
-            icon={<Icon icon="cross" color="#8293AE" iconSize={14} />}
+            icon={<Icon icon="cross" color="#BBBBBB" iconSize={14} />}
             onClick={clearGrid}
             style={{ outline: 0 }}
           />
         </ButtonGroup>
-        <SettingsModal />
+        <SettingsModal
+          preset={preset}
+          changePreset={changePreset}
+        />
       </div>
     </div >
   );
