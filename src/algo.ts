@@ -17,7 +17,7 @@ const coordinatesToCheck: ICoordinates[] = [
   { y: -1, x: -1 },
 ];
 
-export const getDistance = (a: ICoordinates | IVisitedCell, b: ICoordinates | IVisitedCell) => {
+const getDistance = (a: ICoordinates | IVisitedCell, b: ICoordinates | IVisitedCell) => {
   const colOffset = Math.abs(a.y - b.y);
   const rowOffset = Math.abs(a.x - b.x);
   const numberOfStraightSegments = Math.abs(colOffset - rowOffset);
@@ -46,8 +46,6 @@ export const computePath = (mainGrid: ICell[][], start: ICoordinates, end: ICoor
 
   while (openList.length > 0) {
     const currentCell = minBy(openList, c => c.fCost);
-    console.log(openList)
-    console.log(currentCell);
 
     if (!currentCell) {
       // No path found

@@ -58,3 +58,12 @@ table.gridTable {
 .gridCell.end {
   background-color: #EC605B;
 }
+
+.tooltipRoot {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.tooltipRoot td {
+  padding: 5px;
+}
