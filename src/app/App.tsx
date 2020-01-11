@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <div className="footer">Created by <a
         target="_blank"
         rel="noopener noreferrer"
-        href="http://www.codeblocq.com/"> Jonathan Klughertz</a> - Source Code available on <a
+        href="http://www.codeblocq.com/"> Jonathan Klughertz</a> - Source Available on <a
         target="_blank"
         href="https://github.com/klugjo/a-star-react"
         rel="noopener noreferrer"> GitHub</a></div>
