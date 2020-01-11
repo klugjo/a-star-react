@@ -1,18 +1,23 @@
 import _ from 'lodash';
 import { IAction, IMainState, ICoordinates, IStatus, Mode, ICell, IVisitedCell } from '../typings';
-import { generateGrid, computePath } from '../a-star'
+import { computePath } from '../algo';
 import { SET_CELL_AS_BLOCKED, SET_MODE, SET_START, SET_END, CALCULATE_PATH, CLEAR_GRID } from './actions';
 import { GRID_SIZE } from './constants';
+import { A_STAR } from './presets';
+
+const generateGrid = <T>(numberOfRows: number, numberOfColumns: number, value: T): T[][] => {
+  return _.range(numberOfRows).map(() =>
+    _.range(numberOfColumns).map(() => (value)));
+};
 
 const initialState = (width: number, height: number): IMainState => ({
-  grid: generateGrid<ICell>(width, height, { status: 'empty' }),
+  grid: A_STAR,
   mode: Mode.draw,
-  start: { row: 2, col: 2 },
-  end: { row: width -3, col: height - 3 },
-  path: generateGrid<IVisitedCell | undefined>(width, height, undefined)
+  start: { x: 2, y: 2 },
+  end: { x: width -3, y: height - 3 }
 });
 
-const changeCellStatus = (state: IMainState, { row, col }: ICoordinates, status: IStatus): IMainState => {
+const changeCellStatus = (state: IMainState, { x: row, y: col }: ICoordinates, status: IStatus): IMainState => {
   const newState = _.cloneDeep(state);
   if (status === 'blocked' && newState.grid[row][col].status === 'blocked') {
     newState.grid[row][col] = { status: 'empty' };

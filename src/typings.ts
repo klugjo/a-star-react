@@ -4,11 +4,11 @@ export interface IAction<T = undefined> {
 }
 
 export interface ICoordinates {
-  row: number;
-  col: number;
+  x: number;
+  y: number;
 }
 
-export type IStatus = 'empty' | 'blocked' | 'searched';
+export type IStatus = 'empty' | 'blocked';
 export enum Mode {
   draw,
   setStart,
@@ -25,13 +25,17 @@ export interface IVisitedCell {
   gCost: number; // distance to start node
   hCost: number; // distance to end node
   fCost: number; // sum of the above
-  closed: boolean; // Already checked
+  isClosed: boolean; // is Closed
+  isPath: boolean;
+  parent?: IVisitedCell;
   counter: number; // Order in which it is checked (for css animation)
+  x: number;
+  y: number;
 }
 
 export interface IMainState {
   grid: ICell[][];
-  path: IPath;
+  path?: IVisitedCell[][];
   start: ICoordinates;
   end: ICoordinates;
   mode: Mode;

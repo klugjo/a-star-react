@@ -12,15 +12,15 @@ const TooltipContent: React.FC<ITooltipContentProps> = ({
     <table>
       <tbody>
         <tr>
-          <td>Distance to start</td>
+          <td>g cost</td>
           <td>{cell.gCost}</td>
         </tr>
         <tr>
-          <td>Distance to end</td>
+          <td>h cost</td>
           <td>{cell.hCost}</td>
         </tr>
         <tr>
-          <td>Sum</td>
+          <td>f cost</td>
           <td>{cell.fCost}</td>
         </tr>
       </tbody>

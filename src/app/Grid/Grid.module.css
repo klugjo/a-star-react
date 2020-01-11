@@ -8,6 +8,10 @@
   to { background: rgb(34, 116, 240); }
 }
 
+@keyframes fadeInPath {
+  from { background: #2E3F5A; }
+  to { background: #D9822B; }
+}
 
 table.gridTable {
   border-collapse: separate;
@@ -41,6 +45,10 @@ table.gridTable {
 
 .gridCell.closed:not(.start):not(.end) {
   animation: fadeInClosed 2s forwards;
+}
+
+.gridCell.path:not(.start):not(.end) {
+  animation: fadeInPath 2s forwards;
 }
 
 .gridCell.start {

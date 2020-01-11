@@ -10,7 +10,7 @@ interface IGridProps {
   start: ICoordinates;
   end: ICoordinates;
   mode: Mode;
-  path: IPath;
+  path?: IPath;
   setCellAsBlocked: (coordinates: ICoordinates) => void;
   setStart: (coordinates: ICoordinates) => void;
   setEnd: (coordinates: ICoordinates) => void;
@@ -50,11 +50,11 @@ class Grid extends React.Component<IGridProps, IGridState> {
     } = this.props;
 
     if (mode === Mode.draw) {
-      setCellAsBlocked({ row: rowIndex, col: colIndex });
+      setCellAsBlocked({ x: rowIndex, y: colIndex });
     } else if (mode === Mode.setStart) {
-      setStart({ row: rowIndex, col: colIndex });
+      setStart({ x: rowIndex, y: colIndex });
     } else if (mode === Mode.setEnd) {
-      setEnd({ row: rowIndex, col: colIndex });
+      setEnd({ x: rowIndex, y: colIndex });
     }
   };
 

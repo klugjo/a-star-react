@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, ButtonGroup, Icon } from '@blueprintjs/core';
 import { Mode } from '../../typings';
+import SettingsModal from './SettingsModal';
 
 import styles from './Controls.module.css';
 
@@ -57,6 +58,7 @@ const Grid: React.FC<IGridProps> = ({
             style={{ outline: 0 }}
           />
         </ButtonGroup>
+        <SettingsModal />
       </div>
     </div >
   );
