@@ -6,7 +6,6 @@ import _ from 'lodash';
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
 import { IVisitedCell } from './typings';
-import Grid from './app/Grid/Grid';
 
 declare global {
   namespace jest {

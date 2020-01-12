@@ -36,6 +36,7 @@ const GridCell: React.FC<IGridCellProps> = ({
 
   return <td
     key={`${rowIndex}-${colIndex}`}
+    data-testid={`cell-${rowIndex}-${colIndex}`}
     className={cn(
       styles.gridCell,
       styles[cell.status],
@@ -56,6 +57,7 @@ const GridCell: React.FC<IGridCellProps> = ({
     {
       (path && (isClosed || isChecked || isPath)) ?
       <Tooltip
+        usePortal={false}
         className={styles.gridTooltip}
         content={<TooltipContent cell={path[rowIndex][colIndex]!} />}>
           <div className={styles.gridTooltip} style={{ color: 'transparent' }} />

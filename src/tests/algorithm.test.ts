@@ -1,5 +1,5 @@
-import { computePath } from './algorithm';
-import { ICell } from './typings';
+import { computePath } from '../algorithm';
+import { ICell } from '../typings';
 
 const O: ICell = { status: 'empty' };
 const X: ICell = { status: 'blocked' };

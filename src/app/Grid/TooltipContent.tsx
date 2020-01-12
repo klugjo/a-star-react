@@ -20,7 +20,7 @@ const getLabel = (cell: IVisitedCell) => {
 const TooltipContent: React.FC<ITooltipContentProps> = ({
   cell
 }) => {
-  return <div className={styles.tooltipRoot}>
+  return <div className={styles.tooltipRoot} data-testid="tooltip-test-id">
     <table>
       <tbody>
         <tr>
