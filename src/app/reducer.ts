@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { IAction, IMainState, ICoordinates, IStatus, Mode, IPreset } from '../typings';
-import { computePath } from '../algo';
+import { computePath } from '../algorithm';
 import { SET_CELL_AS_BLOCKED, SET_MODE, SET_START, SET_END, CALCULATE_PATH, CLEAR_GRID, CHANGE_PRESET } from './actions';
 import { GRID_SIZE } from './constants';
 import { A_STAR, LABYRINTH, BLANK, RANDOM } from './presets';
