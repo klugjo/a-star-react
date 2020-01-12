@@ -20,6 +20,7 @@ const SettingsModal: React.FC<ISettingsModalProps> = ({
     <>
       <ButtonGroup className={styles.buttonGroup}>
         <Button
+          data-testid="settings-modal-test-id"
           text="Info"
           icon={<Icon icon="info-sign" color="#BBBBBB" iconSize={14} />}
           onClick={() => setOpen(true)}

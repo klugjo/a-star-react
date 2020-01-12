@@ -4,7 +4,7 @@ import configureStore from '../app/store';
 import { Provider } from 'react-redux';
 import App from '../app/App';
 
-test('Main Grid React Tests', async () => {
+test('Controls React Tests', async () => {
   const store = configureStore();
   const { getByTestId } = render(<Provider store={store}>
     <App />
