@@ -28,35 +28,40 @@ const Grid: React.FC<IGridProps> = ({
         <ButtonGroup>
           <Button
             text="Set Start"
+            data-testid="set-start-testid"
             icon={<Icon icon="stop" color="#4dd276" />}
             active={mode === Mode.setStart}
             onClick={() => setMode(mode === Mode.setStart ? Mode.draw : Mode.setStart)}
             style={{ outline: 0 }}
-          />
+            />
           <Button
             text="Set End"
+            data-testid="set-end-testid"
             icon={<Icon icon="stop" color="#EC605B" />}
             active={mode === Mode.setEnd}
             onClick={() => setMode(mode === Mode.setEnd ? Mode.draw : Mode.setEnd)}
             style={{ outline: 0 }}
-          />
+            />
           <Button
             text="Draw"
+            data-testid="draw-testid"
             icon={<Icon icon="stop" color="#BBBBBB" />}
             active={mode === Mode.draw}
             onClick={() => setMode(Mode.draw)}
             style={{ outline: 0 }}
-          />
+            />
         </ButtonGroup>
         <ButtonGroup className={styles.buttonGroup}>
           <Button
             text="Start"
+            data-testid="start-testid"
             icon={<Icon icon="play" color="#BBBBBB" iconSize={14} />}
             onClick={calculatePath}
             style={{ outline: 0 }}
-          />
+            />
           <Button
             text="Reset"
+            data-testid="reset-testid"
             icon={<Icon icon="cross" color="#BBBBBB" iconSize={14} />}
             onClick={clearGrid}
             style={{ outline: 0 }}
