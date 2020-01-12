@@ -83,10 +83,6 @@ export const computePath = (mainGrid: ICell[][], start: ICoordinates, end: ICoor
       
       const neighborCell = grid[x][y];
 
-      if (neighborCell.isClosed) {
-        return;
-      }
-
       const gCost = currentCell.gCost + getDistance(currentCell, neighborCell);
       let gCostIsBest = false;
 

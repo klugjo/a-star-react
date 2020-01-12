@@ -1,8 +1,8 @@
-## A-star Pathfindng Demo - React and TypeScript
+## A-star Pathfinding Demo - React and TypeScript
 
 React App that implements and demonstrates the A-Star pathfinding algorithm
 
-[Check out the Demo here]()
+[Check out the Demo here](http://a-star-pathfinding.codeblocq.com/)
 
 ## Features
 
