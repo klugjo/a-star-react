@@ -13,6 +13,9 @@ declare global {
     interface Matchers<R, T> {
       toMatchClosedCells(toMatch: boolean[][]): {};
       toMatchPath(toMatch: boolean[][]): {};
+      toMatchFCost(toMatch: number[][]): {};
+      toMatchGCost(toMatch: number[][]): {};
+      toMatchHCost(toMatch: number[][]): {};
     }
   }
 }
@@ -64,5 +67,14 @@ expect.extend({
   },
   toMatchPath(grid: IVisitedCell[][], toMatch: boolean[][]) {
     return genericGridMatcher<boolean>(grid, toMatch, (c: IVisitedCell) => c.isPath);
+  },
+  toMatchFCost(grid: IVisitedCell[][], toMatch: number[][]) {
+    return genericGridMatcher<number>(grid, toMatch, (c: IVisitedCell) => c.fCost);
+  },
+  toMatchGCost(grid: IVisitedCell[][], toMatch: number[][]) {
+    return genericGridMatcher<number>(grid, toMatch, (c: IVisitedCell) => c.gCost);
+  },
+  toMatchHCost(grid: IVisitedCell[][], toMatch: number[][]) {
+    return genericGridMatcher<number>(grid, toMatch, (c: IVisitedCell) => c.hCost);
   }
 });
